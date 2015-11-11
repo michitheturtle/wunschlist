@@ -1,12 +1,13 @@
 {
-	"name": "angular",
-	"version": "1.0.0",
-	"dependencies": {
-		"jquery": "*",
-		"toastr": "*",
-		"bootstrap": "*",
-		"angular": "*",
-		"angular-resource": "*",
-		"angular-route": "*"
-	}
+  "name": "angular",
+  "version": "1.0.0",
+  "dependencies": {
+    "jquery": "*",
+    "toastr": "*",
+    "bootstrap": "*",
+    "angular": "*",
+    "angular-resource": "*",
+    "angular-route": "*",
+    "angular-ui-router": "~0.2.15"
+  }
 }

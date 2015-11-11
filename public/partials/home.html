@@ -1,2 +1,15 @@
-<h1>titel home</h1>
-<h2>{{ myVar }}</h2>
+<div class="container">
+    <div class="jumbotron">
+        <h1>Preisrobi</h1>
+        <p>Hier findest du chip chip Preise...</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div ng-include="'partials/topdeals.html'"></div>
+        </div>
+        <div class="col-md-6">
+            <div ng-include="'partials/newest.html'"></div>
+        </div>
+    </div>
+</div>

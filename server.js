@@ -1,6 +1,6 @@
 // set up ======================================================================
 var express = require('express'),
-    app = express(), 								// create our app w/ express
+    app = express(), 								// create our server w/ express
     mongoose = require('mongoose'), 					// mongoose for mongodb
     port = process.env.PORT || 8090, 				// set the port
     database = require('./config/database'), 			// load the database config
@@ -44,10 +44,10 @@ app.use(stylus.middleware(
 ))
 
 // routes ======================================================================
-//require('./app/routes/todo.js')(app);
-//require('./app/routes/brands.js')(app);
-require('./app/routes.js')(app);
+//require('./server/routes/todo.js')(server);
+//require('./server/routes/brands.js')(server);
+require('./server/routes.js')(app);
 
-// listen (start app with node server.js) ======================================
+// listen (start server with node server.js) ======================================
 app.listen(port);
 console.log("App listening on port " + port);
