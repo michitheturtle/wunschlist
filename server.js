@@ -1,19 +1,24 @@
 // set up ======================================================================
-var express = require('express');
-var app = express(); 								// create our app w/ express
-var mongoose = require('mongoose'); 					// mongoose for mongodb
-var port = process.env.PORT || 8090; 				// set the port
-var database = require('./config/database'); 			// load the database config
-var morgan = require('morgan');
-var bodyParser = require('body-parser');
-var methodOverride = require('method-override');
-var request = require('request');
-var cheerio = require('cheerio');
-var fs = require('fs');
+var express = require('express'),
+    app = express(), 								// create our app w/ express
+    mongoose = require('mongoose'), 					// mongoose for mongodb
+    port = process.env.PORT || 8090, 				// set the port
+    database = require('./config/database'), 			// load the database config
+    morgan = require('morgan'),
+    bodyParser = require('body-parser'),
+    methodOverride = require('method-override'),
+    request = require('request'),
+    cheerio = require('cheerio'),
+    fs = require('fs'),
+    stylus = require('stylus');
 
 
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
+
+function compile(str,path){
+    return stylus(str).set('filename', path);
+}
 
 // configuration ===============================================================
 if (env === 'development') {
@@ -31,9 +36,16 @@ app.use(bodyParser.json({type: 'application/vnd.api+json'})); // parse applicati
 app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request
 
 
+app.use(stylus.middleware(
+    {
+        src: __dirname + '/public',
+        compile: compile
+    }
+))
+
 // routes ======================================================================
-require('./app/routes/todo.js')(app);
-require('./app/routes/brands.js')(app);
+//require('./app/routes/todo.js')(app);
+//require('./app/routes/brands.js')(app);
 require('./app/routes.js')(app);
 
 // listen (start app with node server.js) ======================================

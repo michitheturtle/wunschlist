@@ -2,8 +2,11 @@
 	"name": "angular",
 	"version": "1.0.0",
 	"dependencies": {
-		"bootstrap": "latest",
-		"angular": "latest",
-		"angular-route": "latest"	
+		"jquery": "*",
+		"toastr": "*",
+		"bootstrap": "*",
+		"angular": "*",
+		"angular-resource": "*",
+		"angular-route": "*"
 	}
 }

@@ -3,14 +3,19 @@
   "version": "0.0.0",
   "description": "Simple todo application.",
   "main": "server.js",
-  "author": "Scotch",
+  "author": "Michael",
+  "engines": {
+    "node": "5.0.x",
+    "npm": "3.3.x"
+  },
   "dependencies": {
     "body-parser": "^1.14.1",
-    "cheerio": "latest",
+    "cheerio": "*",
     "express": "^4.13.3",
     "method-override": "^2.3.5",
     "mongoose": "^4.2.5",
     "morgan": "^1.6.1",
-    "request": "latest"
+    "request": "latest",
+    "stylus": "^0.52.4"
   }
 }
