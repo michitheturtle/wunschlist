@@ -1,3 +1,4 @@
+/server/config/prodconfig.js
 lib-cov
 *.seed
 *.log

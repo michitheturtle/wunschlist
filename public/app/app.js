@@ -15,13 +15,13 @@ angular.module('app').config(function ( $locationProvider, $stateProvider, $urlR
     $stateProvider
         .state('home', {
             url: "/home",
-            templateUrl: "partials/home.html",
+            templateUrl: "app/main/home.html",
             controller: 'mvMainCtrl'
         })
 
         .state('about', {
             url: "/about",
-            templateUrl: "partials/about.html",
+            templateUrl: "app/about/about.html",
             controller: 'aboutController'
         })
 
