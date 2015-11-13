@@ -6,10 +6,10 @@ angular.module('app').controller('mvNavBarLoginCtrl', function($scope, $http){
         $http.post('/login', {username:username, password:password})
             .then(function(response){
                 if(response.data.success){
-                    console.log('logged in');
+                    mvNotifier.notify('You have logged in');
                 }
                 else
-                    console.log('Failed to log in');
+                    mvNotifier.notify('Failed to log in');
             })
     }
 })
