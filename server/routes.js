@@ -1,27 +1,21 @@
-var passport = require('passport');
+var auth = require('./auth'),
+		mongoose = require('mongoose'),
+		User = mongoose.model('User');
 
 module.exports = function(app) {
 
-	// application -------------------------------------------------------------
-	app.get('/butterfly', function(req, res) {
-
-		res.type('text/plain');
-		res.send('i am a beautiful butterfly');
-
+	app.get('/api/users', auth.requiresRole('admin'), function(req, res) {
+		User.find({}).exec(function(err, collection) {
+			res.send(collection);
+		})
 	});
 
-	app.post('/login', function(req, res, next){
-		var auth = passport.authenticate('local',function(err,user){
-			if(err){return next(err);}
-			if(!user) {res.send({success:false});}
+	app.post('/login', auth.authenticate);
 
-			req.logIn(user, function(err){
-				if(err){return next(err);}
-				res.send({success:true, user: user})
-			})
-		})
-		auth(req,res,next);
-	})
+	app.post('/logout', function(req, res) {
+		req.logout();
+		res.end();
+	});
 
 	app.get('*', function(req, res) {
 		res.sendfile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
