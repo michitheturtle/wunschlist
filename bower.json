@@ -4,7 +4,7 @@
   "dependencies": {
     "jquery": "*",
     "toastr": "*",
-    "bootstrap": "*",
+    "bootstrap": "~3.3.5",
     "angular": "*",
     "angular-resource": "*",
     "angular-route": "*",
