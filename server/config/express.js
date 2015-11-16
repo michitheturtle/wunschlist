@@ -8,7 +8,8 @@ var express = require('express'),
     methodOverride = require('method-override'),
     cookieParser = require('cookie-parser'),
     session =require('express-session'),
-    passport = require('passport'); 			// load the database config;
+    passport = require('passport');
+// load the database config;
 
 module.exports = function (app, config) {
 

@@ -10,6 +10,13 @@ module.exports = function(app) {
 		})
 	});*/
 
+	app.get('/bootstrappedUser', function(req, res){
+		if(req.user)
+			res.json(req.user);
+		else
+			res.status(401).end();
+	});
+
 	app.post('/login', auth.authenticate);
 
 	app.post('/logout', function(req, res) {

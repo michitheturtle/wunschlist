@@ -31,7 +31,6 @@
     <script src="app/account/mvAuth.js"></script>
     <script src="app/account/mvUser.js"></script>
     <script src="app/common/mvNotifier.js"></script>
-
 </head>
 
 <body>
@@ -53,6 +52,13 @@
 </div>
 
 <footer class="container text-center"><p>&copy; 2013 MultiVisionCorp International Ltd.</p></footer>
+
+<script type="text/javascript">
+    $http.get('/bootstrappedUser')
+            .success(function(data, status, headers, config) {
+                window.bootstrappedUserObject = data;
+            });
+</script>
 </body>
 
 </html>
