@@ -21,6 +21,7 @@ require('./server/config/mongoose')(config);
 require('./server/config/passport')();
 
 // routes ======================================================================
+require('./server/routes/brand.js')(app);
 require('./server/routes.js')(app);
 
 // listen (start server with node server.js) ======================================

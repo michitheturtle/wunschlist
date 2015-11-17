@@ -16,12 +16,15 @@ var brandSchema = new Schema({
 // we need to create a model using it
 var Brand = mongoose.model('Brand', brandSchema);
 
+Brand.find({}).exec(function(err, collection){
+	if(collection.length === 0){
+
+		Brand.create({name:'Hobo',created_at: new Date(), updated_at: new Date() });
+		Brand.create({name:'FischerPreis',created_at: new Date(), updated_at: new Date() });
+		Brand.create({name:'Fabla',created_at: new Date(), updated_at: new Date() });
+	}
+})
+
 // make this available to our users in our Node applications
 module.exports = Brand;
 
-/*
-module.exports = mongoose.model('Brand', {
-	name : {type : String, default: ''},
-	url: {type : String, default: ''},
-	logo_url : {type : String, default: ''}
-});*/

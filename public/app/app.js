@@ -23,6 +23,12 @@ angular.module('app').config(function ( $locationProvider, $stateProvider, $urlR
             controller: 'mvMainCtrl'
         })
 
+        .state('brands', {
+            url: "/brands",
+            templateUrl: "app/brands/home.html",
+            controller: 'mvBrandCtrl'
+        })
+
         .state('adminshowUsers', {
             url: "/showAllUsers",
             templateUrl: "app/admin/userslist.html",

@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="jumbotron">
+        <h1>Marken</h1>
+        <p>Alle dies gibt und noch mehr</p>
+    </div>
+
+    <div class="row">
+        <ul  ng-repeat="brand in brands">
+            <li>{{brand.name}}</li>
+        </ul>
+        <div class="col-md-6">
+            <div ng-include="'app/main/topdeals.html'"></div>
+        </div>
+        <div class="col-md-6">
+            <div ng-include="'app/main/newest.html'"></div>
+        </div>
+    </div>
+</div>
