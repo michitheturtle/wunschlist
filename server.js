@@ -2,10 +2,7 @@
 var express = require('express'),
     request = require('request'),
     cheerio = require('cheerio'),
-    fs = require('fs'),
-    mongoose = require('mongoose'),
-    passport = require('passport'),
-    LocalStrategy = require('passport-local').Strategy;
+    fs = require('fs');
 
 
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -17,7 +14,6 @@ var configpath = './server/config/prodconfig';
 if(env === 'development'){
     configpath = './server/config/devconfig'
 }
-
 var config = require(configpath);
 
 require('./server/config/express')(app,config);

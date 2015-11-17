@@ -5,10 +5,14 @@ angular.module('app', ['ngResource', 'ui.router']);
 
 angular.module('app').config(function ( $locationProvider, $stateProvider, $urlRouterProvider) { //$routeProvider,
 
+    var routeRoleChecks = {
+        admin: {auth: function(mvAuth){
+            return mvAuth.authorizeCurrentUserForRoute('admin')
+        }}
+    }
+
+
     $locationProvider.html5Mode({enabled: true, requireBase: false});
-    /*$routeProvider
-     .when('/', { templateUrl: 'partials/home.html', controller: 'mvMainCtrl'})
-     .when('/about', { templateUrl: 'partials/about.html', controller: 'aboutController'});*/
 
     $urlRouterProvider.otherwise("/home");
 
@@ -19,6 +23,13 @@ angular.module('app').config(function ( $locationProvider, $stateProvider, $urlR
             controller: 'mvMainCtrl'
         })
 
+        .state('adminshowUsers', {
+            url: "/showAllUsers",
+            templateUrl: "app/admin/userslist.html",
+            controller: 'mvUserListCtrl',
+            resolve: routeRoleChecks.admin
+        })
+
         .state('about', {
             url: "/about",
             templateUrl: "app/about/about.html",
@@ -27,6 +38,13 @@ angular.module('app').config(function ( $locationProvider, $stateProvider, $urlR
 
 });
 
+angular.module('app').run(function($rootScope, $location){
+    $rootScope.$on('$routeChangeError', function(evt, current, previous, rejection){
+        if(rejection === 'not-authorized'){
+            $location.path('/home');
+        }
+    })
+})
 
 angular.module('app').controller('aboutController', function ($scope) {
     $scope.irgendwas = "fafafa";
