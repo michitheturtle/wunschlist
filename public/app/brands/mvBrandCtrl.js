@@ -1,10 +1,11 @@
 /**
  * Created by michael on 11.11.15.
  */
-angular.module('app').controller('mvBrandCrl', ['$scope','$http','Brands', function($scope, $http, Brands) {
+angular.module('app').controller('mvBrandCtrl', function($scope, $http, Brands) {
 
     $scope.formData = {};
     $scope.loading = true;
+
 
     // GET =====================================================================
     // when landing on the page, get all todos and show them
@@ -48,4 +49,15 @@ angular.module('app').controller('mvBrandCrl', ['$scope','$http','Brands', funct
                 $scope.brands = data; // assign our new list of todos
             });
     };
-}]);
+
+   /* var init = function () {
+        // check if there is query in url
+        // and fire search in case its value is not empty
+    Brands.get()
+
+    };
+// and fire it after definition
+    init();*/
+
+
+});

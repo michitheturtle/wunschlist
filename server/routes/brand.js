@@ -1,10 +1,10 @@
 /**
  * Created by michael on 09.11.15.
  */
-var Todo = require('../models/brand');
+var Brand = require('../models/brand');
 
 function getBrands(res){
-    Todo.find(function(err, brands) {
+    Brand.find(function(err, brands) {
 
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err)
@@ -43,7 +43,7 @@ module.exports = function(app) {
 
     // delete a todo
     app.delete('/api/brands/:brand_id', function(req, res) {
-        Todo.remove({
+        Brand.remove({
             _id : req.params.brand_id
         }, function(err, todo) {
             if (err)
