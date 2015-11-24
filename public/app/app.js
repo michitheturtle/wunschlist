@@ -23,6 +23,12 @@ angular.module('app').config(function ( $locationProvider, $stateProvider, $urlR
             controller: 'mvMainCtrl'
         })
 
+        .state('signup', {
+            url: "/signup",
+            templateUrl: "app/account/signup.html",
+            controller: 'mvSignupCtrl'
+        })
+
         .state('brands', {
             url: "/brands",
             templateUrl: "app/brands/home.html",
