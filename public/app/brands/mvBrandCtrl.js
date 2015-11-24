@@ -1,10 +1,17 @@
 /**
  * Created by michael on 11.11.15.
  */
-angular.module('app').controller('mvBrandCtrl', function($scope, $http, Brands) {
+angular.module('app').controller('mvBrandCtrl', ['$scope', '$http','Brands', function($scope, $http, Brands) {
+
+    var x = Brands.yes();
 
     $scope.formData = {};
     $scope.loading = true;
+
+    $scope.brands = [{name: 'John Doe', id: '1'},
+        {name: 'Mary Homes', id: '2'},
+        {name: 'Chris Karl', id: '3'}
+    ];
 
 
     // GET =====================================================================
@@ -60,4 +67,4 @@ angular.module('app').controller('mvBrandCtrl', function($scope, $http, Brands) 
     init();*/
 
 
-});
+}]);

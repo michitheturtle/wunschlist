@@ -1,5 +1,8 @@
 angular.module('app').factory('Brands', function ($http) {
     return {
+        yes: function(){
+            return true;
+        },
         get: function () {
             return $http.get('/api/brands');
         },

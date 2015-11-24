@@ -8,6 +8,10 @@
     "angular": "*",
     "angular-resource": "*",
     "angular-route": "*",
-    "angular-ui-router": "~0.2.15"
+    "angular-ui-router": "~0.2.15",
+    "angular-mocks": "~1.4.8"
+  },
+  "resolutions": {
+    "angular": "1.4.8"
   }
 }
