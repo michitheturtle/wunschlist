@@ -22,7 +22,7 @@ require('./server/config/passport')();
 
 // routes ======================================================================
 require('./server/routes/brand.js')(app);
-require('./server/routes.js')(app);
+require('./server/config/routes.js')(app);
 
 // listen (start server with node server.js) ======================================
 app.listen(config.port);
