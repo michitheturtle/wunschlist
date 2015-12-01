@@ -38,8 +38,7 @@ angular.module('app').config(function ( $locationProvider, $stateProvider, $urlR
         .state('adminshowUsers', {
             url: "/showAllUsers",
             templateUrl: "app/admin/userslist.html",
-            controller: 'mvUserListCtrl',
-            resolve: routeRoleChecks.admin
+            controller: 'mvUserListCtrl'
         })
 
         .state('about', {
