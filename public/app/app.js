@@ -8,6 +8,9 @@ angular.module('app').config(function ( $locationProvider, $stateProvider, $urlR
     var routeRoleChecks = {
         admin: {auth: function(mvAuth){
             return mvAuth.authorizeCurrentUserForRoute('admin')
+        }},
+        user: {auth: function(mvAuth){
+            return mvAuth.authorizeAuthenticatedUserForRoute()
         }}
     }
 
@@ -35,10 +38,18 @@ angular.module('app').config(function ( $locationProvider, $stateProvider, $urlR
             controller: 'mvBrandCtrl'
         })
 
+        .state('myprofile', {
+            url: "/myprofile",
+            templateUrl: "app/account/profile.html",
+            controller: 'mvProfileCtrl',
+            resolve: routeRoleChecks.user
+        })
+
         .state('adminshowUsers', {
             url: "/showAllUsers",
             templateUrl: "app/admin/userslist.html",
-            controller: 'mvUserListCtrl'
+            controller: 'mvUserListCtrl',
+            resolve: routeRoleChecks.admin
         })
 
         .state('about', {
