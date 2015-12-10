@@ -38,6 +38,12 @@ angular.module('app').config(function ( $locationProvider, $stateProvider, $urlR
             controller: 'mvBrandCtrl'
         })
 
+        .state('courses', {
+            url: "/courses",
+            templateUrl: "app/courses/home.html",
+            controller: 'mvCourseCtrl'
+        })
+
         .state('myprofile', {
             url: "/myprofile",
             templateUrl: "app/account/profile.html",
