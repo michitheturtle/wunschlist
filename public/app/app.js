@@ -40,8 +40,8 @@ angular.module('app').config(function ( $locationProvider, $stateProvider, $urlR
 
         .state('courses', {
             url: "/courses",
-            templateUrl: "app/courses/home.html",
-            controller: 'mvCourseCtrl'
+            templateUrl: "app/courses/course-list.html",
+            controller: 'mvCourseListCtrl'
         })
 
         .state('myprofile', {
