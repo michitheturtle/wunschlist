@@ -44,6 +44,12 @@ angular.module('app').config(function ( $locationProvider, $stateProvider, $urlR
             controller: 'mvCourseListCtrl'
         })
 
+        .state('coursesdetail', {
+            url: '/courses/{courseId}',
+            controller: 'mvCourseDetailCtrl',
+            templateUrl: "app/courses/course-details.html",
+        })
+
         .state('myprofile', {
             url: "/myprofile",
             templateUrl: "app/account/profile.html",

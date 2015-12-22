@@ -16,7 +16,10 @@
         </thead>
         <tbody>
         <tr ng-repeat="course in courses | filter:searchText | orderBy:sortOrder">
-            <td>{{course.title}}</td>
+            <td><a ui-sref="coursesdetail({courseId:course._id})">{{course.title}}</a></td>
+            <!--<td><a href="/courses/{{course._id}}">{{course.title}}</a></td>-->
+            <td><a ui-sref="coursesdetail({courseId:course._id})">1212</a></td>
+            <td><a ui-sref="courses.detail({ id: course._id })">{{ contact.name }}</a></td>
             <td>{{course.published | date}}</td>
         </tr>
         </tbody>
