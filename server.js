@@ -9,11 +9,11 @@ var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var app = express();
 
-var configpath = './server/config/prodconfig';
+var configpath = './server/config/dbconfig';
 
-if(env === 'development'){
+/*if(env === 'development'){
     configpath = './server/config/devconfig'
-}
+}*/
 var config = require(configpath);
 
 require('./server/config/express')(app,config);
