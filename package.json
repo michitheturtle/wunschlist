@@ -1,14 +1,14 @@
 {
-  "name": "pricer",
+  "name": "wunschlist",
   "version": "0.0.0",
-  "description": "Simple todo application.",
+  "description": "wünsch dir was.",
   "main": "server.js",
   "author": "Michael",
   "license": "UNLICENSED",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/michitheturtle/pricer.git"
+    "url": "https://github.com/michitheturtle/wunschlist.git"
   },
   "engines": {
     "node": "5.0.x",

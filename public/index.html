@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
 
-    <title>PreisRobi</title>
+    <title>wunschlist</title>
 
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
 
@@ -43,19 +43,26 @@
     <script src="/app/courses/mvCourseDetailCtrl.js"></script>
     <script src="/app/courses/mvCourse.js"></script>
     <script src="/app/courses/mvCachedCourses.js"></script>
+
+    <script src="/app/wuensche/mvWunschListCtrl.js"></script>
+    <script src="/app/wuensche/mvWunschDetailCtrl.js"></script>
+    <script src="/app/wuensche/mvWuensche.js"></script>
+    <script src="/app/wuensche/mvCachedWuensche.js"></script>
+
+
 </head>
 
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
-        <div class="navbar-header"><a href="/" class="navbar-brand">PreisRobi<h6>Chip chip prize</h6></a></div>
+        <div class="navbar-header"><a href="/" class="navbar-brand">wunschlist<h6>wish your stuff</h6></a></div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a ui-sref="home">Home</a></li>
                 <li><a ui-sref="about">About</a></li>
                 <li><a ui-sref="adminshowUsers">Users</a></li>
                 <li><a ui-sref="brands">Brands</a></li>
-                <li><a ui-sref="courses">Kurse</a></li>
+                <li><a ui-sref="wunschliste">Wünsche</a></li>
 
             </ul>
             <div ng-include="'app/account/navbar-login.html'"></div>
@@ -66,7 +73,7 @@
 <div ui-view>
 </div>
 
-<footer class="container text-center"><p>&copy; 2013 MultiVisionCorp International Ltd.</p></footer>
+<footer class="container text-center"><p>&copy; 2016 michitheturtle | <a href="http://www.turtlestack.ch" target="_blank">http://www.turtlestack.ch</a></p></footer>
 
 </body>
 

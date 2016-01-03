@@ -50,6 +50,19 @@ angular.module('app').config(function ( $locationProvider, $stateProvider, $urlR
             templateUrl: "app/courses/course-details.html",
         })
 
+        //wunschliste
+        .state('wunschliste', {
+            url: "/wuensche",
+            templateUrl: "app/wuensche/wunsch-list.html",
+            controller: 'mvWunschListCtrl'
+        })
+
+        .state('wunschdetail', {
+            url: '/wuensche/{wunschId}',
+            controller: 'mvWunschDetailCtrl',
+            templateUrl: "app/wuensche/wunsch-details.html",
+        })
+
         .state('myprofile', {
             url: "/myprofile",
             templateUrl: "app/account/profile.html",

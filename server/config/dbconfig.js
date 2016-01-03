@@ -7,7 +7,7 @@ var rootPath = path.normalize(__dirname + "/../../")
 
 module.exports = {
 
-    dbConnectionString : process.env.mongolab_connection ||  'mongodb://localhost',
+    dbConnectionString : process.env.mongolab_connection ||  'mongodb://localhost/wunschlist',
     rootPath: rootPath,
     port: process.env.PORT || 8090
 }
