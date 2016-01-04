@@ -10,12 +10,12 @@
         </div>
         <div ng-repeat="wish in wishes | filter:searchText | orderBy:sortOrder" class="container top15 row-shadowed">
             <div class="row ">
-                <div class="col-lg-2">
-                    <img src="{{wish.bildUrl}}" width="100%" alt="{{wish.title}}"/></div>
-                <div class="col-lg-6">
+                <div class="col-sm-2 col-lg-2">
+                    <img src="{{wish.bildUrl}}" style="width:100%;max-width:120px;"  alt="{{wish.title}}"/></div>
+                <div class="col-sm-6 col-lg-6">
                     <h3>{{wish.title}}</h3>
                     {{wish.beschreibung}}</div>
-                <div class="col-lg-4" style="height: 100%;">
+                <div class="col-sm-4 col-lg-4" style="height: 100%;">
                     <a ui-sref="wunschdetail({wunschId:wish._id})" class="btn btn-primary pull-right" ng-disabled="wish.erfuellt">Schenken</a>
                     Preis: {{wish.preis | currency : ""}} CHF<br/>
                     Geschenkt: {{ getGeschenkt(wish) | currency : ""}} CHF<br/>
