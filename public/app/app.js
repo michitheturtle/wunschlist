@@ -17,7 +17,7 @@ angular.module('app').config(function ( $locationProvider, $stateProvider, $urlR
 
     $locationProvider.html5Mode({enabled: true, requireBase: false});
 
-    $urlRouterProvider.otherwise("/home");
+    $urlRouterProvider.otherwise("/wuensche");
 
     $stateProvider
         .state('home', {
