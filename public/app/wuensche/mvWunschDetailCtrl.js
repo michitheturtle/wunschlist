@@ -22,4 +22,21 @@ angular.module('app').controller('mvWunschDetailCtrl', function($scope, mvCached
             }
         })
     })
+
+    $scope.signup = function() {
+        var newUserData = {
+            username: $scope.email,
+            password: $scope.password,
+            firstName: $scope.fname,
+            lastName: $scope.lname
+        };
+
+        mvAuth.createUser(newUserData).then(function() {
+            mvNotifier.notify('Danke für die Übermittlung!');
+            $location.path('/');
+        }, function(reason) {
+            mvNotifier.error(reason);
+        })
+    }
+
 });
