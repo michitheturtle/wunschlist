@@ -1,8 +1,6 @@
-# MeanBase
+# WunschList
 
-simple hand-made mean project to kickstart own projects
-
-Node provides the RESTful API. Angular provides the frontend and accesses the API. MongoDB stores like a hoarder.
+Start your own list and tell your friends and family what you wish for. Possibility to define a price for things people want to participate.
 
 ## Requirements
 
