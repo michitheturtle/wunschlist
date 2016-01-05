@@ -22,7 +22,9 @@ angular.module('app').controller('mvWunschDetailCtrl', function($scope, mvCached
         };
 
         $scope.wish.geschenke.push(newGiftData);
-        $scope.wish.$save();
+        $scope.wish.$save(function(msg, headers){
+            console.log(msg); // note, at this point msg === newMessage
+        });
 
         mvCachedWuensche.refresh();
 

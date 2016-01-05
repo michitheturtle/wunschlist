@@ -1,4 +1,4 @@
-<div class="container top15" style="max-width:1000px!important;">
+<div class="container" style="max-width:1000px!important;">
 
         <div class="pull-right" style="display: none;">
             <form class="form-inline">
@@ -11,16 +11,17 @@
         <div ng-repeat="wish in wishes | filter:searchText | orderBy:sortOrder" class="container top15 row-shadowed">
             <div class="row ">
                 <div class="col-sm-2 col-lg-2">
-                    <img src="{{wish.bildUrl}}" style="width:100%;max-width:120px;"  alt="{{wish.title}}"/></div>
+                    <span style="" class="thankyou" ng-show="wish.erfuellt">DANKE!</span>
+                    <img src="{{wish.bildUrl}}" style="width:100%;max-width:120px;margin:5px;"  alt="{{wish.title}}"/>
+                </div>
                 <div class="col-sm-5 col-lg-5">
                     <h3>{{wish.title}}</h3>
                     {{wish.beschreibung}}</div>
                 <div class="col-sm-5 col-lg-5" style="height: 100%;">
                     <a ui-sref="wunschdetail({wunschId:wish._id})" class="btn btn-primary pull-right" ng-disabled="wish.erfuellt">Schenken</a>
-                    Preis: {{wish.preis | currency : ""}} CHF<br/>
-                    Geschenkt: {{ getGeschenkt(wish) | currency : ""}} CHF<br/>
-                    Offen: {{ getRestbetrag(wish) | currency : ""}} CHF
-
+                    <p style="color: #0dad58;font-size: x-large;margin-bottom: 2px;">Offen: {{ toCHF(getRestbetrag(wish)) }}</p>
+                    <p style="color: #515151;font-size: larger;margin-bottom: 2px;">Geschenkt: {{ toCHF(getGeschenkt(wish))}}</p>
+                    <p style="color: #515151;font-size: larger;margin-bottom: 2px;">Preis: {{ toCHF(wish.preis) }}</p>
                 </div>
             </div>
         </div>
