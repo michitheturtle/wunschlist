@@ -11,6 +11,9 @@ angular.module('app').factory('mvCachedWuensche', function(mvWuensche) {
             }
 
             return wunschList;
+        },
+        refresh: function(){
+            wunschList = mvWuensche.query();
         }
     }
 })

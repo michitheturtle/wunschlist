@@ -6,7 +6,8 @@ var mongoose = require('mongoose');
 var wuschgeschenk= mongoose.Schema({
    name: {type:String, required:'{PATH} is required!'},
     wert: {type:Number, required:'{PATH} is required!'},
-    datum: {type: Date, default: Date.now}
+    datum: {type: Date, default: Date.now},
+    email: {type:String, required:'{PATH} is required!'},
 });
 
 var wunschlisteSchema = mongoose.Schema({
@@ -40,6 +41,7 @@ function createDefaultWishes() {
 
             geschenkt.name = 'Hanspeter';
             geschenkt.wert = 9999;
+            geschenkt.email = 'you@mine.ch';
 
             Wunschliste.create({title: 'Weltreise',beschreibung: 'In 80 Tagen um die Welt.', erfuellt: false, preis: 12500.50,bildUrl:'/img/world.png' });
             Wunschliste.create({title: 'Haus',beschreibung: 'Ein kleines Haus.', erfuellt: false, preis: 460000,bildUrl:'/img/haus.png'});

@@ -16,6 +16,8 @@ module.exports = function(app) {
 
 	app.get('/api/wunschlisten', wunschlisten.getWuensche);
 	app.get('/api/wunschlisten/:id', wunschlisten.getWunschById);
+//	app.post('/api/wunschlisten', wunschlisten.createWunsch);
+	app.put('/api/wunschlisten', wunschlisten.updateWunsch);
 
 	app.get('/partials/*', function(req, res) {
 		res.render('../../public/app/' + req.params[0]);
