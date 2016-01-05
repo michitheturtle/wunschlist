@@ -1,5 +1,5 @@
 body {
-  padding-top: 10px;
+  padding-top: 41px;
 }
 .navbar-header a.navbar-brand {
   margin-top: -15px;
@@ -27,24 +27,12 @@ footer p {
 .toast-success {
   background-color: #13987e;
 }
-
-.top5 { margin-top:5px; }
-.top7 { margin-top:7px; }
-.top10 { margin-top:10px; }
-.top15 { margin-top:15px; }
-.top17 { margin-top:17px; }
-.top30 { margin-top:30px; }
-.top50 { margin-top:50px; }
-
-.row-shadowed {
-  background: lightblue;
-  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-  padding: 5px;
-  border-radius: 10px;
+.toast-error {
+  background-color: #f08080;
 }
-
-.row + .row {
-  border-top:0 ;
+.toast-info {
+  background-color: #66afe9;
+}
+.toast-warning {
+  background-color: #d58512;
 }
