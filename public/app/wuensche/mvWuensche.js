@@ -1,21 +1,19 @@
 /**
  * Created by michael on 14.12.15.
  */
-/*
-angular.module('app').factory('mvWuensche', function ($resource) {
-    var resource = $resource('/api/wunschlisten/:_id', {_id: "@id"}, {
-        update: {method: 'PUT', isArray: false}
-    });
-
-    return resource;
-});
-*/
 angular.module('app').factory( 'mvWuensche', [ 'WuenscheResource', function( $resource ) {
-       return  return {
-        getResource: function(){
-            $resource('/api/wunschlisten/:_id', {_id: "@id"} );
-        }}
-     }]);
+
+    return {
+
+        getResource: function () {
+            return $resource('/api/wunschlisten/:_id', {_id: "@id"});
+        },
+
+        test: function () {
+            return "testi";
+        }
+    }
+}]);
 
 angular.module('app').factory('WuenscheResource', ['$resource', function ($resource) {
     return function (url, params, methods) {
@@ -33,7 +31,7 @@ angular.module('app').factory('WuenscheResource', ['$resource', function ($resou
                 return this.$create();
             }
             else {
-                return this.$update();
+                return this.$save();
             }
         };
 

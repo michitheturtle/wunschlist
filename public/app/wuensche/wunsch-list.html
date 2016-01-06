@@ -22,6 +22,7 @@
                     <p style="color: #0dad58;font-size: x-large;margin-bottom: 2px;">Offen: {{ toCHF(getRestbetrag(wish)) }}</p>
                     <p style="color: #515151;font-size: larger;margin-bottom: 2px;">Geschenkt: {{ toCHF(getGeschenkt(wish))}}</p>
                     <p style="color: #515151;font-size: larger;margin-bottom: 2px;">Preis: {{ toCHF(wish.preis) }}</p>
+                    <p>{{ wish.meow(); }}</p>
                 </div>
             </div>
         </div>

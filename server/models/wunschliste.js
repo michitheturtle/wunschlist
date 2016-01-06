@@ -30,6 +30,12 @@ wunschlisteSchema.methods.test = function(){
     return "hallo du ";
 }
 
+wunschlisteSchema.method('meow', function () {
+    console.log('meeeeeoooooooooooow');
+})
+
+
+
 var Wunschliste = mongoose.model('wunschliste', wunschlisteSchema);
 var geschenke = mongoose.model('wunschgeschenke', wuschgeschenk);
 

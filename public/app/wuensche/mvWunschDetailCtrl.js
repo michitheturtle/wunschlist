@@ -21,24 +21,21 @@ angular.module('app').controller('mvWunschDetailCtrl', function($scope, mvCached
             datum: $scope.datum
         };
 
-        $scope.wish.geschenke.push(newGiftData);
-        $scope.wish.$save(function(msg, headers){
-            console.log(msg); // note, at this point msg === newMessage
-        });
-
-        mvCachedWuensche.refresh();
-
-        mvNotifier.notify('Danke für die Übermittlung!');
-
-        $state.go('wunschliste');
+        //$scope.wish.geschenke.push(newGiftData);
 
 
-       /* mvAuth.createUser(newUserData).then(function() {
+        mvCachedWuensche.updateWunsch($scope.wish, newGiftData).then(function() {
+
+            mvCachedWuensche.refresh();
+
             mvNotifier.notify('Danke für die Übermittlung!');
-            $location.path('/');
+
+            $state.go('wunschliste');
+
         }, function(reason) {
             mvNotifier.error(reason);
-        })*/
+        })
+
     }
 
 });

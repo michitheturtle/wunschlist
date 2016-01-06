@@ -37,5 +37,6 @@ angular.module('app').controller('mvWunschListCtrl', function($scope, mvCachedWu
 
     $scope.sortOptions = [{value:"title",text: "Sort by Title"},
         {value: "preis",text: "Sort by Price"}];
+
     $scope.sortOrder = $scope.sortOptions[0].value;
 });
