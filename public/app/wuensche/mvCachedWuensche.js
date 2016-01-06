@@ -7,13 +7,13 @@ angular.module('app').factory('mvCachedWuensche', function(mvWuensche) {
     return {
         query: function() {
             if(!wunschList) {
-                wunschList = mvWuensche.query();
+                wunschList = mvWuensche.getResource().query();
             }
 
             return wunschList;
         },
         refresh: function(){
-            wunschList = mvWuensche.query();
+            wunschList =  mvWuensche.getResource().query();
         }
     }
 })

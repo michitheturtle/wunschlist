@@ -11,7 +11,10 @@ angular.module('app').factory('mvWuensche', function ($resource) {
 });
 */
 angular.module('app').factory( 'mvWuensche', [ 'WuenscheResource', function( $resource ) {
-       return $resource('/api/wunschlisten/:_id', {_id: "@id"} );
+       return  return {
+        getResource: function(){
+            $resource('/api/wunschlisten/:_id', {_id: "@id"} );
+        }}
      }]);
 
 angular.module('app').factory('WuenscheResource', ['$resource', function ($resource) {
