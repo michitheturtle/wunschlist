@@ -53,31 +53,9 @@ exports.updateWunsch = function (req, res) {
             if (err)
                 res.send(err);
 
-            res.json({ message: 'Bear updated!' });
+            res.send(wunsch);
         });
 
     });
 
-    /*
-
-    userUpdates.save(function (err) {
-        if (err) {
-            res.status(400);
-            return res.send({reason: err.toString()});
-        }
-        res.send(userUpdates);
-    });
-
-
-     req.user.firstName = userUpdates.firstName;
-     req.user.lastName = userUpdates.lastName;
-     req.user.username = userUpdates.username;
-     if(userUpdates.password && userUpdates.password.length > 0) {
-     req.user.salt = encrypt.createSalt();
-     req.user.hashed_pwd = encrypt.hashPwd(req.user.salt, userUpdates.password);
-     }
-     req.user.save(function(err) {
-     if(err) { res.status(400); return res.send({reason:err.toString()});}
-     res.send(req.user);
-     });*/
 };
