@@ -31,7 +31,7 @@ angular.module('app').factory('WuenscheResource', ['$resource', function ($resou
                 return this.$create();
             }
             else {
-                return this.$save();
+                return this.$update();
             }
         };
 

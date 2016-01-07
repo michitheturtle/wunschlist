@@ -16,7 +16,9 @@ var wunschlisteSchema = mongoose.Schema({
     preis: {type:Number, required:'{PATH} is required!'},
     beschreibung: {type:String, required: '{PATH} is required!'},
     bildUrl: {type:String},
-    geschenke: [wuschgeschenk]
+    geschenke: [wuschgeschenk],
+    bisherGeschenkt: {type:Number, default: 0},
+    offenerBetrag: {type:Number}
 });
 wunschlisteSchema.methods.getSumGeschenkt = function(){
     var sum = 0;
@@ -49,10 +51,10 @@ function createDefaultWishes() {
             geschenkt.wert = 9999;
             geschenkt.email = 'you@mine.ch';
 
-            Wunschliste.create({title: 'Weltreise',beschreibung: 'In 80 Tagen um die Welt.', erfuellt: false, preis: 12500.50,bildUrl:'/img/world.png' });
-            Wunschliste.create({title: 'Haus',beschreibung: 'Ein kleines Haus.', erfuellt: false, preis: 460000,bildUrl:'/img/haus.png'});
-            Wunschliste.create({title: 'Elefant',beschreibung: 'Dumboooooo.', erfuellt: true, preis: 9425.25 ,bildUrl:'/img/elefant.png', geschenke: geschenkt});
-            Wunschliste.create({title: 'Buch',beschreibung: 'In 80 Tagen um die Welt - das Buch.', erfuellt: false, preis: 19.25 ,bildUrl:'/img/book.png'});
+            Wunschliste.create({title: 'Weltreise',beschreibung: 'In 80 Tagen um die Welt.', erfuellt: false, preis: 12500.50, offenerBetrag: 12500.50,bildUrl:'/img/world.png' });
+            Wunschliste.create({title: 'Haus',beschreibung: 'Ein kleines Haus.', erfuellt: false, preis: 460000, offenerBetrag: 460000,bildUrl:'/img/haus.png'});
+            Wunschliste.create({title: 'Elefant',beschreibung: 'Dumboooooo.', erfuellt: true, preis: 9425.25 , bisherGeschenkt: 9425.25 ,bildUrl:'/img/elefant.png', geschenke: geschenkt});
+            Wunschliste.create({title: 'Buch',beschreibung: 'In 80 Tagen um die Welt - das Buch.', erfuellt: false, preis: 19.25, offenerBetrag: 19.25 ,bildUrl:'/img/book.png'});
         }
     })
 }

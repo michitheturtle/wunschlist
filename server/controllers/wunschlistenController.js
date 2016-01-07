@@ -47,8 +47,8 @@ exports.updateWunsch = function (req, res) {
 
         wunsch.title  = userUpdates.title;//.name = req.body.name;  // update the bears info
         wunsch.geschenke = userUpdates.geschenke;
+        wunsch.erfuellt = userUpdates.erfuellt;
 
-        // save the bear
         wunsch.save(function(err) {
             if (err)
                 res.send(err);
@@ -56,6 +56,14 @@ exports.updateWunsch = function (req, res) {
             res.send(wunsch);
         });
 
+    /*    // save the bear
+        wunsch.save(function(err) {
+            if (err)
+                res.send(err);
+
+            res.send(wunsch);
+        });
+*/
     });
 
 };
