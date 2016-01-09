@@ -3,7 +3,8 @@ var auth = require('./auth'),
 		courses = require('../controllers/courses'),
 		wunschlisten = require('../controllers/wunschlistenController'),
 		mongoose = require('mongoose'),
-		User = mongoose.model('User');
+		User = mongoose.model('User'),
+		mailer = require('./emails');
 
 module.exports = function(app) {
 
@@ -22,6 +23,9 @@ module.exports = function(app) {
 	app.get('/partials/*', function(req, res) {
 		res.render('../../public/app/' + req.params[0]);
 	});
+
+	app.get('/test/sendmail', mailer.sendTestmail);
+
 
 	app.post('/login', auth.authenticate);
 

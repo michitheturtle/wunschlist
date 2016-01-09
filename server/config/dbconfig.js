@@ -3,11 +3,11 @@
  */
 
 var path = require('path');
-var rootPath = path.normalize(__dirname + "/../../")
+var rootPath = path.normalize(__dirname + "/../../");
 
 module.exports = {
 
     dbConnectionString : process.env.mongolab_connection ||  'mongodb://localhost/wunschlist',
     rootPath: rootPath,
-    port: process.env.PORT || 8090
+    port: process.env.PORT || 8089
 }
