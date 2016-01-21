@@ -8,6 +8,7 @@ var wuschgeschenk= mongoose.Schema({
     wert: {type:Number, required:'{PATH} is required!'},
     datum: {type: Date, default: Date.now},
     email: {type:String, required:'{PATH} is required!'},
+    uebermittlung: {type:String, required:'{PATH} is required!'},
 });
 
 var wunschlisteSchema = mongoose.Schema({

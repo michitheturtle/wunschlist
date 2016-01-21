@@ -4,7 +4,7 @@ var auth = require('./auth'),
 		wunschlisten = require('../controllers/wunschlistenController'),
 		mongoose = require('mongoose'),
 		User = mongoose.model('User'),
-		mailer = require('./emails');
+		mailer = require('./../controllers/emails');
 
 module.exports = function(app) {
 
@@ -24,7 +24,8 @@ module.exports = function(app) {
 		res.render('../../public/app/' + req.params[0]);
 	});
 
-	app.get('/test/sendmail', mailer.sendTestmail);
+	app.get('/api/sendmail', mailer.sendTestmail);
+	app.post('/api/sendmail', mailer.sendTestmail);
 
 
 	app.post('/login', auth.authenticate);

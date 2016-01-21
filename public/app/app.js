@@ -17,7 +17,13 @@ angular.module('app').config(function ( $locationProvider, $stateProvider, $urlR
 
     $locationProvider.html5Mode({enabled: true, requireBase: false});
 
-    $urlRouterProvider.otherwise("/wuensche");
+
+    $urlRouterProvider.otherwise(function (injector) {
+        event.preventDefault();
+        injector.get('$state').go('wuensche');
+    });
+
+    //$urlRouterProvider.otherwise("/wuensche");
 
     $stateProvider
         .state('home', {
@@ -51,16 +57,31 @@ angular.module('app').config(function ( $locationProvider, $stateProvider, $urlR
         })
 
         //wunschliste
-        .state('wunschliste', {
+        .state('wuensche', {
             url: "/wuensche",
             templateUrl: "app/wuensche/wunsch-list.html",
             controller: 'mvWunschListCtrl'
         })
 
-        .state('wunschdetail', {
-            url: '/wuensche/{wunschId}',
-            controller: 'mvWunschDetailCtrl',
-            templateUrl: "app/wuensche/wunsch-details.html",
+        .state('wuensche.detail', {
+            url: '^/:wunschId',
+            views: {
+                'detail': {
+                    templateUrl: 'products.detail.html',
+                    controller: 'mvWunschDetailCtrl'
+                }
+            },
+        })
+
+        .state('wuensche.detailAsRoot', {
+            url: '^/wunsch/:wunschId',
+            views: {
+                '@': {
+                    controller: 'mvWunschDetailCtrl',
+                    templateUrl: "app/wuensche/wunsch-details.html",
+                }
+            },
+
         })
 
         .state('myprofile', {

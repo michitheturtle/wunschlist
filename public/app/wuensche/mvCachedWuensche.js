@@ -53,71 +53,7 @@ angular.module('app').factory('mvCachedWuensche', function (mvWuensche, $q) {
             });
 
 
-            /*wunsch.geschenke.push(gift);
 
-             var sum = 0;
-             wunsch.geschenke.forEach(function (gesch) {
-             sum = sum + gesch.wert;
-             });
-             if (sum >= wunsch.preis) {
-             wunsch.erfuellt = 1;
-             }
-
-             wunsch.title = wunsch.title + "_f";
-
-             wunsch.$save().then(function () {
-             dfd.resolve();
-             }, function (response) {
-             dfd.reject(response.data.reason);
-             });*/
-
-
-            /*wunschList.forEach(function (wish) {
-             if (wish._id === wunsch._id) {
-
-             if (wish.erfuellt) {
-             dfd.reject("Sorry, der Wunsch ist bereits erfüllt.");
-             }
-
-             angular.extend(wish, wunsch);
-
-             var sum = 0;
-             wish.geschenke.forEach(function (gesch) {
-             sum = sum + gesch.wert;
-             });
-             if (sum >= wish.preis) {
-             wish.erfuellt = true;
-             }
-
-             wish.title = wish.title + "_a";
-
-             wish.$save().then(function () {
-             dfd.resolve();
-             }, function (response) {
-             dfd.reject(response.data.reason);
-             });
-             }
-             })*/
-
-
-            /*var item = Item.get({ _id: wunsch._id }, function( data ) {
-
-             angular.extend(data, wunsch);
-
-             data.update().then(function () {
-             dfd.resolve();
-             }, function (response) {
-             dfd.reject(response.data.reason);
-             });
-
-
-             });*/
-
-            /*wunsch.update().then(function () {
-             dfd.resolve();
-             }, function (response) {
-             dfd.reject(response.data.reason);
-             });*/
             return dfd.promise;
         },
     }
