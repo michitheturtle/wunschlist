@@ -52,8 +52,8 @@ exports.updateWunsch = function (req, res) {
         wunsch.save(function(err) {
             if (err)
                 res.send(err);
-
-            res.send(wunsch);
+            else
+                res.send(wunsch);
         });
 
     /*    // save the bear

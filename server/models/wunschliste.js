@@ -18,24 +18,15 @@ var wunschlisteSchema = mongoose.Schema({
     beschreibung: {type:String, required: '{PATH} is required!'},
     bildUrl: {type:String},
     geschenke: [wuschgeschenk],
-    bisherGeschenkt: {type:Number, default: 0},
-    offenerBetrag: {type:Number}
 });
-wunschlisteSchema.methods.getSumGeschenkt = function(){
+
+/*wunschlisteSchema.methods.getSumGeschenkt = function(){
     var sum = 0;
     for (index = 0; index < this.geschenke.length; ++index) {
         sum += this.geschenke[i].wert;
     }
     return sum;
-}
-
-wunschlisteSchema.methods.test = function(){
-    return "hallo du ";
-}
-
-wunschlisteSchema.method('meow', function () {
-    console.log('meeeeeoooooooooooow');
-})
+}*/
 
 
 
@@ -52,10 +43,12 @@ function createDefaultWishes() {
             geschenkt.wert = 9999;
             geschenkt.email = 'you@mine.ch';
 
-            Wunschliste.create({title: 'Weltreise',beschreibung: 'In 80 Tagen um die Welt.', erfuellt: false, preis: 12500.50, offenerBetrag: 12500.50,bildUrl:'/img/world.png' });
-            Wunschliste.create({title: 'Haus',beschreibung: 'Ein kleines Haus.', erfuellt: false, preis: 460000, offenerBetrag: 460000,bildUrl:'/img/haus.png'});
-            Wunschliste.create({title: 'Elefant',beschreibung: 'Dumboooooo.', erfuellt: true, preis: 9425.25 , bisherGeschenkt: 9425.25 ,bildUrl:'/img/elefant.png', geschenke: geschenkt});
-            Wunschliste.create({title: 'Buch',beschreibung: 'In 80 Tagen um die Welt - das Buch.', erfuellt: false, preis: 19.25, offenerBetrag: 19.25 ,bildUrl:'/img/book.png'});
+            Wunschliste.create({title: 'Wohnlandschaft',beschreibung: 'Unser altes Sofa durfte schon einiges miterleben. Junge Katzen und der Umzug haben ihre Spuren hinterlassen. <br />Deshalb wäre es an der Zeit für einen Ersatz. Möglichst mit Bettfunktion für Gäste.', erfuellt: false, preis: 1600, bildUrl:'/img/sofa.jpg' });
+            Wunschliste.create({title: 'Ferien im Tessin', beschreibung: 'Als Flitterwochen-Ersatz würden wir gerne wieder einige Tage im Tessin verbringen. Geplant sind 5 Tage in Brissago.', erfuellt: false, preis: 700,bildUrl:'/img/tessin.jpg' });
+            Wunschliste.create({title: 'Abendessen im Restaurant',beschreibung: 'Einen Abend für uns. Mit Babysitter, gutem Essen und ein wenig Zeit.', erfuellt: false, preis: 250, bildUrl:'/img/dinner.jpg'});
+            Wunschliste.create({title: 'Städtetrip nach Kopenhagen',beschreibung: 'Verlängertes Wochenende in Dänkemark. Ausflug nach Schweden, wenn möglich.', erfuellt: false, preis: 1800, bildUrl:'/img/kopenhagen.jpg'});
+            /*Wunschliste.create({title: 'Elefant',beschreibung: 'Dumboooooo.', erfuellt: true, preis: 9425.25 , bisherGeschenkt: 9425.25 ,bildUrl:'/img/elefant.png', geschenke: geschenkt});
+            Wunschliste.create({title: 'Buch',beschreibung: 'In 80 Tagen um die Welt - das Buch.', erfuellt: false, preis: 19.25, offenerBetrag: 19.25 ,bildUrl:'/img/book.png'});*/
         }
     })
 }

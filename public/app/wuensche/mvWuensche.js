@@ -1,7 +1,7 @@
 /**
  * Created by michael on 14.12.15.
  */
-angular.module('app').factory( 'mvWuensche', [ 'WuenscheResource', function( $resource ) {
+angular.module('app').factory('mvWuensche', ['WuenscheResource', function ($resource) {
 
     return {
 
@@ -34,6 +34,37 @@ angular.module('app').factory('WuenscheResource', ['$resource', function ($resou
                 return this.$update();
             }
         };
+
+        resource.prototype.getRestbetrag = function (noCHF) {
+
+            var result = this.preis - this.getGeschenkt(true);
+
+            if (result < 0) {
+                result = 0;
+            }
+            if (!noCHF)
+                return this.CHF(result);
+            else
+                return result;
+
+        };
+
+        resource.prototype.getGeschenkt = function (noCHF) {
+
+            var sum = 0;
+            for (index = 0; index < this.geschenke.length; ++index) {
+                sum += this.geschenke[index].wert;
+            }
+            if (!noCHF)
+                return this.CHF(sum);
+            else
+                return sum;
+
+        };
+
+        resource.prototype.CHF = function (num) {
+            return "CHF " + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1'")
+        }
 
         return resource;
     };

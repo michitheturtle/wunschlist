@@ -2,21 +2,25 @@
     <a ui-sref="wuensche" class="btn btn-primary">
         <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Zurück</a>
 
-    <h1>{{wish.title}}</h1>
+
     <div class="row">
         <div class="col-md-6"><h3 ng-show="wish.erfuellt">Bereits efüllt!</h3>
-            <h3>Preis {{wish.preis | currency}}</h3></div>
-        <div class="col-md-6">
+            <h2>{{wish.title}}</h2>
+            <h4>Offen {{wish.getRestbetrag()}}</h4>
+            <span ng-bind-html="wish.beschreibung | to_trusted"></span>
+        <br /><br />
+        <p>Geschenkt: {{wish.getGeschenkt()}}</p></div>
+        <div class="col-md-4">
             <div class="panel panel-primary">
-                <div class="panel-heading">Tags</div>
+                <div class="panel-heading">{{wish.title}}</div>
                 <div class="panel-body">
-                    body
+                    <img src="{{wish.bildUrl}}" style="width:100%;max-width:275px;margin:5px;"  alt="{{wish.title}}"/>
                     <!--<div ng-repeat="tag in course.tags">{{tag}}</div>-->
                 </div>
             </div>
         </div>
     </div>
-    <div class="well" ng-hide="wish.erfuellt">
+    <div class="well top50" ng-hide="wish.erfuellt">
         <form name="signupForm" class="form-horizontal">
             <fieldset>
                 <legend>Deine Angaben:</legend>
@@ -31,11 +35,14 @@
                     <div class="col-md-10"><input name="name" id="name" type="text" placeholder="Name"
                                                   ng-model="name" required="required" class="form-control"/></div>
                 </div>
-                <div class="form-group"><label for="wert" class="col-md-2 control-label">Wert</label>
+                <div class="form-group"><label for="wert" class="col-md-2 control-label">Betrag</label>
 
-                    <div class="col-md-10"><input name="wert" id="wert" type="number" step="0.05" min="0"
-                                                  placeholder="0.0" ng-model="wert"
+                    <div class="col-md-2"><input name="wert" id="wert" type="number" step="0.05" min="0"
+                                                  placeholder="0" ng-model="wert"
                                                   required="required" class="form-control"/></div>
+                    <div class="col-md-6">
+                        <rzslider rz-slider-model="wert"  rz-slider-options="minRangeSlider.options"></rzslider>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label">Art der Beteiligung<br />&nbsp;</label>
@@ -48,6 +55,17 @@
                             <input type="radio" name="uebermittlung" id="uebermittlung" ng-model="uebermittlung" value="umschlag">
                             Couvert (am Fest)
                         </label></div>
+                </div>
+                <div class="form-group" ng-show="uebermittlung === 'ueberw'">
+                    <label class="col-md-2 control-label">&nbsp;</label>
+                    <div class="col-md-10">
+                        <label>
+                            IBAN: CH10 0077 8193 3703 8203 8200 1<br />
+                            Begünstigte: M. Dick & S. Perriard, Wengistrasse 1, 4600 Olten<br />
+                            Bank: Luzerner Kantonalbank
+                        </label><br/>
+                        </div>
+
                 </div>
                 <div class="form-group">
                     <div class="col-md-10 col-md-offset-2">

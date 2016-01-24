@@ -8,6 +8,22 @@ angular.module('app').controller('mvWunschDetailCtrl', function($scope, mvCached
         collection.forEach(function(wish) {
             if(wish._id === $stateParams.wunschId) {
                 $scope.wish = wish;
+
+                $scope.wert = 0;
+
+                //Range slider config
+                $scope.minRangeSlider = {
+                    minValue: 0,
+                    maxValue: wish.getRestbetrag(true),
+                    options: {
+                        floor: 0,
+                        ceil: wish.getRestbetrag(true),
+                        step: 5,
+                        translate: function(value) {
+                            return 'CHF ' + value;
+                        }
+                    }
+                };
             }
         })
     })
@@ -28,20 +44,12 @@ angular.module('app').controller('mvWunschDetailCtrl', function($scope, mvCached
         mvCachedWuensche.updateWunsch($scope.wish, newGiftData).then(function() {
 
             //POST email
-            var data = $.param({
-                json: JSON.stringify({
-                    name: $scope.name,
-                    uebermittlung: $scope.uebermittlung,
-                    betrag: $scope.wert,
-                    geschenkName: $scope.wish.title
-                })
-            });
-
             var serializedData = $.param({
                 name: $scope.name,
                 uebermittlung: $scope.uebermittlung,
                 betrag: $scope.wert,
-                geschenkName: $scope.wish.title
+                geschenkName: $scope.wish.title,
+                email: $scope.email
             });
 
             $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";

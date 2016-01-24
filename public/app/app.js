@@ -1,7 +1,7 @@
 //angular.module('scotchTodo', ['todoController', 'todoService']);
 
 
-angular.module('app', ['ngResource', 'ui.router']);
+angular.module('app', ['ngResource', 'ui.router','rzModule']);
 
 angular.module('app').config(function ( $locationProvider, $stateProvider, $urlRouterProvider) { //$routeProvider,
 

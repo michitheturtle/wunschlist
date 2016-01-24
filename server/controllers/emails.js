@@ -21,7 +21,7 @@ exports.sendTestmail = function(req, res) {
     }else{
         mailHtml += " kann auf folgendes Konto überwiesen werden:<br />" +
             "<p>IBAN: CH10 0077 8193 3703 8203 8200 1</p>" +
-            "<p>Begünstigter: M. Dick & S. Perriard, Wengistrasse 1, 4600 Olten</p>" +
+            "<p>Begünstigte: M. Dick & S. Perriard, Wengistrasse 1, 4600 Olten</p>" +
             "<p>Bank: Luzerner Kantonalbank</p>";
     }
     mailHtml += '<br /><br />' +
@@ -31,10 +31,10 @@ exports.sendTestmail = function(req, res) {
 
 
     var mailOptions = {
-        from: 'Info ✔ <'+ process.env.email_address  + '>', // sender address
+        from: 'Info <'+ process.env.email_address  + '>', // sender address
         to: userData.email, // list of receivers
         bcc: 'gritibaenz@gmail.com',
-        subject: 'Danke für die Übermittlung ✔', // Subject line
+        subject: 'Bestätigung für die Beteiligung am Hochzeitsgeschenk', // Subject line
         text: 'Hallo ' + userData.name, // plaintext body
         html: mailHtml
     };

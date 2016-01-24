@@ -4,9 +4,9 @@ var express = require('express'),
     cheerio = require('cheerio'),
     fs = require('fs');
 
-var env = require('env2')('./config.env')
+//var env = require('env2')('./config.env')
 
-//var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+var env = process.env.NODE_ENV = process.env.NODE_ENV ||  require('env2')('./config.env');// 'development';
 
 var app = express();
 

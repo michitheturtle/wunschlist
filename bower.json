@@ -9,7 +9,8 @@
     "angular-resource": "*",
     "angular-route": "*",
     "angular-ui-router": "~0.2.15",
-    "angular-mocks": "~1.4.8"
+    "angular-mocks": "~1.4.8",
+    "angularjs-slider": "~2.5.0"
   },
   "resolutions": {
     "angular": "1.4.8"

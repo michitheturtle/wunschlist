@@ -5,7 +5,7 @@ angular.module('app').controller('mvWunschListCtrl', function($scope, mvCachedWu
     $scope.wishes = mvCachedWuensche.query();
 
 
-    $scope.getGeschenkt = function(wish){
+   /* $scope.getGeschenkt = function(wish){
 
         var sum = 0;
         for (index = 0; index < wish.geschenke.length; ++index) {
@@ -28,7 +28,7 @@ angular.module('app').controller('mvWunschListCtrl', function($scope, mvCachedWu
 
     $scope.toCHF = function (num) {
         return "CHF " + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1'")
-    }
+    }*/
 
     $scope.toDetails = function (wunsch){
         $state.go(wunschdetail({wunschId:wunsch._id}));
