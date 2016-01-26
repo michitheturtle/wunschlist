@@ -18,6 +18,7 @@
                     <h3>{{wish.title}}</h3>
                     <span ng-bind-html="wish.beschreibung | to_trusted"></span><br />&nbsp;</div>
                 <div class="col-sm-5 col-lg-5" style="height: 100%;">
+                    <!--<a ui-sref="wunschdetail({id:wish._id})" class="btn btn-primary pull-right" ng-disabled="wish.erfuellt">Beteiligen</a>-->
                     <a ui-sref="wuensche.detailAsRoot({wunschId:wish._id})" class="btn btn-primary pull-right" ng-disabled="wish.erfuellt">Beteiligen</a>
                     <p style="color: #0dad58;font-size: x-large;margin-bottom: 2px;">Offen: {{ wish.getRestbetrag() }}</p>
                     <p style="color: #515151;font-size: larger;margin-bottom: 2px;">Geschenkt: {{ wish.getGeschenkt() }}</p>

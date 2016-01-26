@@ -15,13 +15,13 @@ angular.module('app').config(function ( $locationProvider, $stateProvider, $urlR
     }
 
 
-    $locationProvider.html5Mode({enabled: true, requireBase: false});
+    $locationProvider.html5Mode({enabled: true, requireBase: false}).hashPrefix('!');
 
-
-    $urlRouterProvider.otherwise(function (injector) {
-        event.preventDefault();
-        injector.get('$state').go('wuensche');
+    $urlRouterProvider.otherwise(function($injector) {
+        var $state = $injector.get('$state');
+        $state.go('wuensche');
     });
+
 
     //$urlRouterProvider.otherwise("/wuensche");
 
