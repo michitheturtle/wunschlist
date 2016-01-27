@@ -3,28 +3,35 @@
         <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Zurück</a>
 
 
-    <div class="row">
-        <div class="col-md-6"><h3 ng-show="wish.erfuellt">Bereits efüllt!</h3>
+
+       <!-- <div class="col-md-6"><h3 ng-show="wish.erfuellt">Bereits efüllt!</h3>
             <h2>{{wish.title}}</h2>
             <h4>Offen {{wish.getRestbetrag()}}</h4>
             <span ng-bind-html="wish.beschreibung | to_trusted"></span>
-        <br /><br />
-        <p>Geschenkt: {{wish.getGeschenkt()}}</p></div>
-        <div class="col-md-4">
-            <div class="panel panel-primary">
+            <br/><br/>
+            <p>Geschenkt: {{wish.getGeschenkt()}}</p></div>-->
+
+            <div class="panel panel-primary top15" >
                 <div class="panel-heading">{{wish.title}}</div>
                 <div class="panel-body">
-                    <img src="{{wish.bildUrl}}" style="width:100%;max-width:275px;margin:5px;"  alt="{{wish.title}}"/>
+                    <h3 ng-show="wish.erfuellt">Bereits efüllt!</h3>
+                    <div style="float: left;max-width:295px;">
+                        <img src="{{wish.bildUrl}}" style="width:100%;max-width:275px;margin:5px;"
+                             alt="{{wish.title}}"/>
+                    </div>
+                    <div style="float: left;width: 60%">
+                        <span ng-bind-html="wish.beschreibung | to_trusted"></span>
+                    </div>
+                    <div style="clear:both"></div>
                     <!--<div ng-repeat="tag in course.tags">{{tag}}</div>-->
                 </div>
             </div>
-        </div>
-    </div>
+
     <div class="well top50" ng-hide="wish.erfuellt">
         <form name="signupForm" class="form-horizontal">
             <fieldset>
                 <legend>Deine Angaben:</legend>
-                <div class="form-group"><label for="email" class="col-md-2 control-label">Email</label>
+                <div class="form-group"><label for="email" class="col-md-2 control-label">Email*</label>
 
                     <div class="col-md-10"><input name="email" id="email" type="email" placeholder="Email"
                                                   ng-model="email"
@@ -38,21 +45,23 @@
                 <div class="form-group"><label for="wert" class="col-md-2 control-label">Betrag</label>
 
                     <div class="col-md-2"><input name="wert" id="wert" type="number" step="0.05" min="0"
-                                                  placeholder="0" ng-model="wert"
-                                                  required="required" class="form-control"/></div>
+                                                 placeholder="0" ng-model="wert"
+                                                 required="required" class="form-control"/></div>
                     <div class="col-md-6">
-                        <rzslider rz-slider-model="wert"  rz-slider-options="minRangeSlider.options"></rzslider>
+                        <rzslider rz-slider-model="wert" rz-slider-options="minRangeSlider.options"></rzslider>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-2 control-label">Art der Beteiligung<br />&nbsp;</label>
+                    <label class="col-md-2 control-label">Art der Beteiligung<br/>&nbsp;</label>
                     <div class="col-md-10">
                         <label>
-                            <input type="radio" name="uebermittlung" required="required" ng-model="uebermittlung"  value="ueberw">
+                            <input type="radio" name="uebermittlung" required="required" ng-model="uebermittlung"
+                                   value="ueberw">
                             Überweisung
                         </label><br/>
                         <label>
-                            <input type="radio" name="uebermittlung" id="uebermittlung" ng-model="uebermittlung" value="umschlag">
+                            <input type="radio" name="uebermittlung" id="uebermittlung" ng-model="uebermittlung"
+                                   value="umschlag">
                             Couvert (am Fest)
                         </label></div>
                 </div>
@@ -60,11 +69,11 @@
                     <label class="col-md-2 control-label">&nbsp;</label>
                     <div class="col-md-10">
                         <label>
-                            IBAN: CH10 0077 8193 3703 8203 8200 1<br />
-                            Begünstigte: M. Dick & S. Perriard, Wengistrasse 1, 4600 Olten<br />
+                            IBAN: CH10 0077 8193 3703 8203 8200 1<br/>
+                            Begünstigte: M. Dick & S. Perriard, Wengistrasse 1, 4600 Olten<br/>
                             Bank: Luzerner Kantonalbank
                         </label><br/>
-                        </div>
+                    </div>
 
                 </div>
                 <div class="form-group">
@@ -73,8 +82,12 @@
                             <button ng-click="schenke()" ng-disabled="signupForm.$invalid" class="btn btn-primary">
                                 Abschicken
                             </button>
-                            &nbsp;<a href="/" class="btn btn-default">Cancel</a></div>
+                            &nbsp;<a href="/" class="btn btn-default">Abbrechen</a></div>
                     </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10 small">
+                        * Du erhälst eine E-Mail mit der Bestätigung sowie den Angaben zur Übergabe.</div>
                 </div>
             </fieldset>
         </form>
